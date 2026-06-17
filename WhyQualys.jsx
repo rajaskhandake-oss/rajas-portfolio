@@ -1,77 +1,47 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Section, SectionHeading } from "./ui/Section";
-import Reveal from "./ui/Reveal";
-import AnimatedCounter from "./ui/AnimatedCounter";
-import { impact } from "@/lib/content";
+import { Download, ArrowUp } from "lucide-react";
+import { profile } from "@/lib/content";
 
-function MetricCard({ metric, accent }) {
-  const ring =
-    accent === "azure"
-      ? "hover:border-azure/40 hover:shadow-glow-azure"
-      : "hover:border-signal/40 hover:shadow-glow";
-  const tint = accent === "azure" ? "text-azure-soft" : "text-signal-soft";
-
+export default function Footer() {
   return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      className={`glass rounded-2xl p-6 transition-all duration-300 ${ring}`}
-    >
-      <div className={`font-display text-[2.1rem] font-semibold leading-none tracking-tight text-white`}>
-        {metric.value === null ? (
-          <span className={tint}>{metric.text}</span>
-        ) : (
-          <AnimatedCounter
-            value={metric.value}
-            prefix={metric.prefix || ""}
-            suffix={metric.suffix || ""}
-          />
-        )}
-      </div>
-      <div className="mt-3 text-[13.5px] leading-snug text-[#9AA3B2]">
-        {metric.label}
-      </div>
-    </motion.div>
-  );
-}
-
-export default function BusinessImpact() {
-  return (
-    <Section id="impact" className="border-t border-line">
-      <SectionHeading
-        eyebrow="05 — Business Impact"
-        title="Outcomes that show up in the numbers"
-        subtitle="Growth, retention, revenue and speed — the metrics executives actually track, moved at scale."
-      />
-
-      <div className="mt-14 space-y-12">
-        {impact.map((group, gi) => (
-          <div key={group.org}>
-            <Reveal>
-              <div className="mb-5 flex items-center gap-3">
-                <span
-                  className={`h-2.5 w-2.5 rounded-full ${
-                    group.accent === "azure" ? "bg-azure" : "bg-signal"
-                  }`}
-                />
-                <h3 className="font-display text-xl font-semibold text-white">
-                  {group.org}
-                </h3>
-                <span className="hairline flex-1" />
-              </div>
-            </Reveal>
-
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-              {group.metrics.map((metric, mi) => (
-                <Reveal key={metric.label} delay={(gi * 0.05) + mi * 0.05}>
-                  <MetricCard metric={metric} accent={group.accent} />
-                </Reveal>
-              ))}
+    <footer className="border-t border-line py-14">
+      <div className="container-page">
+        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+          <div>
+            <div className="font-display text-lg font-semibold text-white">
+              {profile.name}
             </div>
+            <p className="mt-1 text-sm text-[#8A93A6]">
+              {profile.role} · {profile.education}
+            </p>
           </div>
-        ))}
+
+          <div className="flex items-center gap-3">
+            <a
+              href={profile.resumeHref}
+              download
+              className="inline-flex items-center gap-2 rounded-full bg-signal px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-all hover:bg-signal-soft"
+            >
+              <Download size={15} />
+              Download Resume
+            </a>
+            <a
+              href="#top"
+              aria-label="Back to top"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white/5 text-white transition-colors hover:bg-white/10"
+            >
+              <ArrowUp size={16} />
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-10 hairline" />
+        <p className="mt-6 font-mono text-[11px] tracking-wide text-[#5a6378]">
+          © {new Date().getFullYear()} {profile.name}. Crafted for the next
+          chapter in cybersecurity platforms.
+        </p>
       </div>
-    </Section>
+    </footer>
   );
 }
