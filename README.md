@@ -3,7 +3,7 @@
 A premium, single-page executive portfolio positioning a senior product leader for a
 Director / Senior Product Leadership role in cybersecurity. Built to feel like the
 modern SaaS aesthetic (Stripe / Linear / Vercel / Notion): clean, dark, glassmorphic,
-with smooth motion and interactive architecture diagrams.
+with smooth motion and interactive architecture diagrams. 
 
 ## Stack
 
