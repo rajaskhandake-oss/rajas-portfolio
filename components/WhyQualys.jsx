@@ -39,7 +39,11 @@ export default function WhyQualys() {
             &ldquo;{whyQualys.closing}&rdquo;
           </p>
           <div className="mt-6 flex items-center gap-3">
-            <span className="h-10 w-10 rounded-full bg-gradient-to-br from-signal to-azure" />
+            <img
+              src="/rajas.jpg"
+              alt="Rajas Khandake"
+              className="h-11 w-11 rounded-full object-cover object-top ring-1 ring-white/15"
+            />
             <div>
               <div className="text-sm font-semibold text-white">
                 {profile.name}
