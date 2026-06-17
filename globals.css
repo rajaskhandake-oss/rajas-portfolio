@@ -1,6 +1,29 @@
-Drop your resume PDF in this /public folder and name it:
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import LeadershipJourney from "@/components/LeadershipJourney";
+import ProductEcosystems from "@/components/ProductEcosystems";
+import PlatformExperience from "@/components/PlatformExperience";
+import OperatingModel from "@/components/OperatingModel";
+import BusinessImpact from "@/components/BusinessImpact";
+import Leadership from "@/components/Leadership";
+import Awards from "@/components/Awards";
+import WhyQualys from "@/components/WhyQualys";
+import Footer from "@/components/Footer";
 
-  Rajas-Khandake-Resume.pdf
-
-The "Download Resume" buttons throughout the site link to /Rajas-Khandake-Resume.pdf.
-To use a different filename, update `resumeHref` in lib/content.js.
+export default function Page() {
+  return (
+    <main className="relative overflow-x-hidden">
+      <Navbar />
+      <Hero />
+      <LeadershipJourney />
+      <ProductEcosystems />
+      <PlatformExperience />
+      <OperatingModel />
+      <BusinessImpact />
+      <Leadership />
+      <Awards />
+      <WhyQualys />
+      <Footer />
+    </main>
+  );
+}
